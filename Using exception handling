@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+
+class Base
+{
+    protected:
+        int a, b;
+    public:
+      
+        Base(int x, int y)
+        {
+            a = x;
+            b = y;
+        }
+};
+
+
+class Derived : public Base
+{
+    public:
+      
+        Derived(int x, int y) : Base(x, y)
+        {
+        }
+
+     
+        void swap()
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+
+     
+        void display()
+        {
+            cout << "a = " << a << endl;
+            cout << "b = " << b << endl;
+        }
+};
+
+int main()
+{
+    
+    Derived d(10, 20);
+
+   
+    cout << "Before swapping:" << endl;
+    d.display();
+
+ 
+    d.swap();
+
+  
+    cout << "After swapping:" << endl;
+    d.display();
+
+    return 0;
+}
